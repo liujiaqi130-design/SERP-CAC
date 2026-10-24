@@ -1,12 +1,10 @@
-// See https://vercel.com/ai-gateway/models.
 export const MODELS = [
-  { id: "anthropic/claude-sonnet-5", name: "Claude Sonnet 5" },
-  { id: "openai/gpt-5.6-terra", name: "GPT 5.6 Terra" },
+  { id: "anthropic/claude-haiku-5-5", name: "Claude Haiku 5.5" },
 ]
 
 export const DEFAULT_MODEL = MODELS[0].id
 
-export interface GatewayModel {
+export interface ChatModel {
   id: string
   name: string
 }

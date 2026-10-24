@@ -4,23 +4,24 @@ import { Button } from "@/components/ui/button"
 
 const suggestions = [
   {
-    label: "Tell me a story",
+    label: "Recreate an Alight Motion title",
     prompt:
-      "Tell me a short story. Format it in rich markdown: a title heading, a blockquote, a bulleted list, a table, and some bold and italic text.",
+      "I made an animated title in Alight Motion and want to recreate a similar editable text effect in After Effects. Ask one clarifying question if you need more detail, then give beginner-friendly steps.",
   },
   {
-    label: "What's new in Next.js",
+    label: "Animate text in After Effects",
     prompt:
-      "Search the web for the latest Next.js release and summarize what's new.",
+      "I am new to After Effects. Show me a simple way to customize a text layer and animate it with keyframes.",
   },
   {
-    label: "Look up a repo",
-    prompt: "What are the GitHub stats for vercel/next.js?",
+    label: "Move a design between apps",
+    prompt:
+      "I need to move a creative project between two apps. Ask me which apps and what I need to preserve, then suggest a workflow.",
   },
   {
-    label: "Plan a dinner",
+    label: "Help me choose a workflow",
     prompt:
-      "Help me plan a birthday dinner — ask me a few clarifying questions first, then suggest a menu.",
+      "I know the visual result I want but I am unsure which steps or app settings will get me there. Ask me a clarifying question first.",
   },
 ]
 
