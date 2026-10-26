@@ -29,12 +29,14 @@ export function QuestionCard({
   const questions = part.state === "input-available" ? part.input.questions : []
 
   return (
-    <div className="sticky bottom-2 isolate z-50 mx-auto w-full max-w-2xl px-6 pt-2">
-      <div className="w-full rounded-3xl bg-popover p-4 text-sm text-popover-foreground shadow-lg ring-1 ring-foreground/5 dark:ring-foreground/10">
+    <div className="clarification-dock">
+      <section className="clarification-card" aria-label="Giotto needs clarification">
+        <div className="clarification-heading">
+          <span className="clarification-kicker">QUICK CLARIFICATION</span>
+          <p>Choose the option that best matches what you mean.</p>
+        </div>
         {questions.length === 0 ? (
-          <div className="flex shimmer items-center gap-2 py-2 text-muted-foreground">
-            Preparing a question…
-          </div>
+          <div className="studio-thinking"><span /> Preparing a question…</div>
         ) : (
           <Questionnaire
             key={part.toolCallId}
@@ -56,34 +58,33 @@ export function QuestionCard({
               )
             }}
           >
-            {questions.length > 1 && (
-              <QuestionnaireProgress className="-mb-4" />
-            )}
+            {questions.length > 1 && <QuestionnaireProgress className="clarification-progress" />}
             {questions.map((question, index) => (
-              <QuestionnaireItem key={index} name={`q${index}`} required>
-                <QuestionnaireTitle>{question.question}</QuestionnaireTitle>
-                <QuestionnaireChoices>
+              <QuestionnaireItem key={index} name={`q${index}`} required className="clarification-item">
+                <QuestionnaireTitle className="clarification-question">{question.question}</QuestionnaireTitle>
+                <QuestionnaireChoices className="clarification-choices">
                   {question.choices.map((choice) => (
-                    <QuestionnaireChoice key={choice} value={choice}>
+                    <QuestionnaireChoice key={choice} value={choice} className="clarification-choice">
                       {choice}
                     </QuestionnaireChoice>
                   ))}
                   <QuestionnaireInput
                     aria-label="Another answer"
-                    placeholder="Type another answer…"
+                    placeholder="Or type your answer…"
+                    className="clarification-input"
                   />
                 </QuestionnaireChoices>
                 <QuestionnaireError />
               </QuestionnaireItem>
             ))}
-            <QuestionnaireActions>
+            <QuestionnaireActions className="clarification-actions">
               <QuestionnairePrevious />
               <QuestionnaireNext>Next</QuestionnaireNext>
-              <QuestionnaireSubmit>Answer</QuestionnaireSubmit>
+              <QuestionnaireSubmit>Use this answer</QuestionnaireSubmit>
             </QuestionnaireActions>
           </Questionnaire>
         )}
-      </div>
+      </section>
     </div>
   )
 }

@@ -38,11 +38,11 @@ export function PromptForm({
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <InputGroup>
+    <form className="studio-prompt-form" onSubmit={handleSubmit}>
+      <InputGroup className="studio-input-group">
         <InputGroupTextarea
-          placeholder="Send a message…"
-          className="p-3.5"
+          placeholder="Ask a follow-up or describe another adjustment…"
+          className="studio-prompt-textarea"
           value={input}
           onChange={(event) => setInput(event.target.value)}
           onKeyDown={(event) => {
@@ -56,7 +56,7 @@ export function PromptForm({
             }
           }}
         />
-        <InputGroupAddon align="block-end">
+        <InputGroupAddon align="block-end" className="studio-prompt-controls">
           <ModelSelect
             models={models}
             value={model}
@@ -68,7 +68,7 @@ export function PromptForm({
               size="icon-sm"
               variant="outline"
               aria-label="Stop generating"
-              className="ml-auto"
+              className="studio-send-button"
               onClick={onStop}
             >
               <SquareIcon />
@@ -79,7 +79,7 @@ export function PromptForm({
               size="icon-sm"
               variant="default"
               aria-label="Send message"
-              className="ml-auto"
+              className="studio-send-button"
               disabled={!input.trim()}
             >
               <ArrowUpIcon />

@@ -2,11 +2,13 @@ import { type InferUITools, type UIDataTypes, type UIMessage } from "ai"
 
 import { askUser } from "./ask_user"
 import { githubRepo } from "./github_repo"
+import { officialDocs } from "./official_docs"
 import { getWebSearch } from "./web_search"
 
 const baseTools = {
   github_repo: githubRepo,
   ask_user: askUser,
+  official_docs: officialDocs,
 }
 
 export function getTools(modelId: string) {
@@ -39,6 +41,10 @@ export type GithubRepoToolPart = Extract<
 export type AskUserToolPart = Extract<
   ChatMessagePart,
   { type: "tool-ask_user" }
+>
+
+export type OfficialDocsToolPart = Extract<
+  ChatMessagePart, { type: "tool-official_docs" }
 >
 
 export type WebSearchToolPart = Extract<

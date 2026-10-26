@@ -1,5 +1,5 @@
 export const MODELS = [
-  { id: "anthropic/claude-haiku-5-5", name: "Claude Haiku 5.5" },
+  { id: "nvidia/nemotron-3.5-lightning-free", name: "Nemotron 3.5 Lightning (Free)" },
 ]
 
 export const DEFAULT_MODEL = MODELS[0].id
