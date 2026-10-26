@@ -1,0 +1,13 @@
+{
+  "name": "studio-companion-overlay",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A draggable Windows desktop widget prototype for creative software workflows.",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^44.7.1"
+  }
+}
